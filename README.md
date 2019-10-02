@@ -3,3 +3,6 @@
 
 ## brain-even: setup and run
 [![asciicast](https://asciinema.org/a/VgLlA0f8gjsoCL3aZ14NRIIac.svg)](https://asciinema.org/a/VgLlA0f8gjsoCL3aZ14NRIIac)
+
+## brain-calc: setup and run
+[![asciicast](https://asciinema.org/a/R1jrRo5abXvfafY0UuHHkFhzM.svg)](https://asciinema.org/a/R1jrRo5abXvfafY0UuHHkFhzM)
