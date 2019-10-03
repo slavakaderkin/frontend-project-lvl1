@@ -12,3 +12,6 @@
 
 ## brain-progression: setup and run
 [![asciicast](https://asciinema.org/a/R1jrRo5abXvfafY0UuHHkFhzM.svg)](https://asciinema.org/a/y6fBSCVMB5Touc2Dvi6MiKfKa)
+
+## brain-prime: setup and run
+[![asciicast](https://asciinema.org/a/R1jrRo5abXvfafY0UuHHkFhzM.svg)](https://asciinema.org/a/GoRe53JCagchHLMN8IJgAH4Aq)
