@@ -1,29 +1,35 @@
 import { cons } from '@hexlet/pairs';
 import gameRun from '..';
+import getRandomInt from '../random-integer';
 
-const getRandomInt = (max) => Math.floor(Math.random() * Math.floor(max));
+const task = 'What number is missing in the progression?';
+const makeGame = () => {
+  const firstElement = getRandomInt(1, 100);
+  const progressionLength = 10;
+  const progressionStep = 2;
+  const randomElement = getRandomInt(1, progressionLength + 1);
 
-const rule = 'What number is missing in the progression?';
-const game = () => {
-  let startNum = getRandomInt(100);
-  const randomChar = getRandomInt(9);
-  let question = '';
-  let answer = '';
+  const valueOfElement = (start, step, number) => String(start + number * step);
+  const makeQuestion = (start, length, step, hidden) => {
+    let result = '';
 
-  for (let i = 0; i < 10; i += 1) {
-    if (i === randomChar) {
-      question += '.. ';
-      answer = String(startNum);
-    } else {
-      question += `${startNum} `;
+    for (let i = 1; i <= length; i += 1) {
+      if (i === hidden) {
+        result += '.. ';
+      } else {
+        result += `${valueOfElement(start, step, i)} `;
+      }
     }
 
-    startNum += 2;
-  }
+    return result;
+  };
+
+  const question = makeQuestion(firstElement, progressionLength, progressionStep, randomElement);
+  const answer = valueOfElement(firstElement, progressionStep, randomElement);
 
   return cons(question, answer);
 };
 
 export default () => {
-  gameRun(game, rule);
+  gameRun(makeGame, task);
 };

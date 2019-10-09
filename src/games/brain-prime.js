@@ -1,25 +1,36 @@
 import { cons } from '@hexlet/pairs';
 import gameRun from '..';
+import getRandomInt from '../random-integer';
 
-const getRandomInt = (max) => Math.floor(Math.random() * Math.floor(max));
 const isPrime = (num) => {
-  for (let i = 2; i !== num; i += 1) {
+  if (num < 2) {
+    return false;
+  }
+
+  for (let i = 2; i < num / 2; i += 1) {
     if (num % i === 0) {
-      return 'no';
+      return false;
     }
   }
 
-  return 'yes';
+  return true;
 };
 
-const rule = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-const game = () => {
-  const question = getRandomInt(100);
-  const answer = isPrime(question);
+const task = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+const makeGame = () => {
+  const question = getRandomInt(1, 100);
+  const getAnswer = (receivedQuestion) => {
+    if (isPrime(receivedQuestion) === true) {
+      return 'yes';
+    }
+
+    return 'no';
+  };
+  const answer = getAnswer(question);
 
   return cons(question, answer);
 };
 
 export default () => {
-  gameRun(game, rule);
+  gameRun(makeGame, task);
 };

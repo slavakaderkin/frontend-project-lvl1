@@ -1,21 +1,6 @@
 import readlineSync from 'readline-sync';
 import { car, cdr } from '@hexlet/pairs';
 
-export const greeting = (rule) => {
-  console.log('Welcome to The Brain Games!');
-
-  if (rule !== undefined) {
-    console.log(`${rule}`);
-  }
-  console.log('');
-};
-
-const getName = () => {
-  const userName = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${userName}!\n`);
-  return userName;
-};
-
 const gameRound = (game, name) => {
   const question = car(game);
   const rightAnswer = cdr(game);
@@ -32,9 +17,11 @@ const gameRound = (game, name) => {
   return true;
 };
 
-export default (game, rule) => {
-  greeting(rule);
-  const userName = getName();
+export default (game, task) => {
+  console.log('Welcome to The Brain Games!');
+  console.log(`${task}\n`);
+  const userName = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${userName}!\n`);
 
   const iter = (counter, round) => {
     if (counter === 3) {

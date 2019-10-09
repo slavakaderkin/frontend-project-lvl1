@@ -1,23 +1,24 @@
 import { cons } from '@hexlet/pairs';
 import gameRun from '..';
+import getRandomInt from '../random-integer';
 
-const getRandomInt = (max) => Math.floor(Math.random() * Math.floor(max));
-const isEven = (num) => {
-  if (num % 2 === 0) {
-    return 'yes';
-  }
+const isEven = (num) => (num % 2 === 0);
 
-  return 'no';
-};
+const task = 'Answer "yes" if the number is even, otherwise answer "no".';
+const makeGame = () => {
+  const question = getRandomInt(1, 100);
+  const getAnswer = (receivedQuestion) => {
+    if (isEven(receivedQuestion) === true) {
+      return 'yes';
+    }
 
-const rule = 'Answer "yes" if the number is even, otherwise answer "no".';
-const game = () => {
-  const question = getRandomInt(100);
-  const answer = isEven(question);
+    return 'no';
+  };
+  const answer = getAnswer(question);
 
   return cons(question, answer);
 };
 
 export default () => {
-  gameRun(game, rule);
+  gameRun(makeGame, task);
 };

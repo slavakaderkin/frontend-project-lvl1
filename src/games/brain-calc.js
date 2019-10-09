@@ -1,22 +1,27 @@
 import { cons } from '@hexlet/pairs';
 import gameRun from '..';
+import getRandomInt from '../random-integer';
 
-const getRandomInt = (max) => Math.floor(Math.random() * Math.floor(max));
-const getRandomOperator = (str) => str[getRandomInt(2)];
+const getRandomOperator = () => {
+  const listOfOperators = '+-*';
+  return listOfOperators[getRandomInt(0, 2)];
+};
 
-const rule = 'What is the result of the expression?';
-const game = () => {
-  const operand1 = getRandomInt(100);
-  const operand2 = getRandomInt(100);
-  const operator = getRandomOperator('+-*');
-  const getAnswer = (oper) => {
-    switch (oper) {
+const task = 'What is the result of the expression?';
+const makeGame = () => {
+  const operand1 = getRandomInt(1, 100);
+  const operand2 = getRandomInt(1, 100);
+  const operator = getRandomOperator();
+  const getAnswer = (receivedOperator) => {
+    switch (receivedOperator) {
       case '+':
         return operand1 + operand2;
       case '-':
         return operand1 - operand2;
-      default:
+      case '*':
         return operand1 * operand2;
+      default:
+        return null;
     }
   };
 
@@ -27,5 +32,5 @@ const game = () => {
 };
 
 export default () => {
-  gameRun(game, rule);
+  gameRun(makeGame, task);
 };
