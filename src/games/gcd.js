@@ -2,7 +2,6 @@ import { cons } from '@hexlet/pairs';
 import gameRun from '..';
 import getRandomInt from '../random-integer';
 
-
 const gcd = (num1, num2) => {
   let divisor = 0;
   if (num1 < num2) {
@@ -19,7 +18,7 @@ const gcd = (num1, num2) => {
 };
 
 const task = 'Find the greatest common divisor of given numbers.';
-const makeGame = () => {
+const makeRound = () => {
   const num1 = getRandomInt(1, 100);
   const num2 = getRandomInt(1, 100);
 
@@ -30,5 +29,5 @@ const makeGame = () => {
 };
 
 export default () => {
-  gameRun(makeGame, task);
+  gameRun(makeRound, task);
 };

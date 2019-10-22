@@ -3,21 +3,21 @@ import gameRun from '..';
 import getRandomInt from '../random-integer';
 
 const task = 'What number is missing in the progression?';
-const makeGame = () => {
+const progressionLength = 10;
+const makeRound = () => {
   const firstElement = getRandomInt(1, 100);
-  const progressionLength = 10;
-  const progressionStep = 2;
-  const randomElement = getRandomInt(1, progressionLength + 1);
+  const progressionStep = getRandomInt(1, 10);
+  const randomElement = getRandomInt(0, progressionLength - 1);
 
   const valueOfElement = (start, step, number) => String(start + number * step);
   const makeQuestion = (start, length, step, hidden) => {
     let result = '';
 
-    for (let i = 1; i <= length; i += 1) {
+    for (let i = 0; i < length; i += 1) {
       if (i === hidden) {
-        result += '.. ';
+        result = `${result} ..`;
       } else {
-        result += `${valueOfElement(start, step, i)} `;
+        result = `${result} ${valueOfElement(start, step, i)}`;
       }
     }
 
@@ -31,5 +31,5 @@ const makeGame = () => {
 };
 
 export default () => {
-  gameRun(makeGame, task);
+  gameRun(makeRound, task);
 };
