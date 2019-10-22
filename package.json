@@ -2,7 +2,7 @@
   "name": "brain_games_of_slavakaderkin",
   "version": "1.6.0",
   "description": "Frontend project lvl1 from hexlet",
-  "keywords": "brain-games, hexlet-projects"
+  "keywords": "brain-games, hexlet-projects",
   "bin": {
     "brain-games": "dist/bin/brain-games.js",
     "brain-even": "dist/bin/brain-even.js",
