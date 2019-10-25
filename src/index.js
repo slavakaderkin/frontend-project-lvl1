@@ -7,8 +7,12 @@ export default (data, task) => {
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}!\n`);
 
-  const iter = (counter, roundData, name) => {
-    const round = roundData();
+  const iter = (counter) => {
+    if (counter === 3) {
+      console.log(`Congratulations, ${userName}!`);
+      return undefined;
+    }
+    const round = data();
     const question = car(round);
     const rightAnswer = cdr(round);
 
@@ -18,14 +22,12 @@ export default (data, task) => {
     if (userAnswer === rightAnswer) {
       console.log('Correct!');
     } else {
-      return console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.\nLet's try again, ${name}`);
-    }
-    if (counter === 3) {
-      return console.log(`Congratulations, ${userName}!`);
+      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.\nLet's try again, ${userName}`);
+      return undefined;
     }
 
-    return iter(counter + 1, data, userName);
+    return iter(counter + 1);
   };
 
-  return iter(1, data, userName);
+  return iter(0);
 };
