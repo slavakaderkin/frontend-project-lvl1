@@ -10,7 +10,7 @@ export default (data, task) => {
   const iter = (counter) => {
     if (counter === 3) {
       console.log(`Congratulations, ${userName}!`);
-      return undefined;
+      return;
     }
     const round = data();
     const question = car(round);
@@ -23,11 +23,11 @@ export default (data, task) => {
       console.log('Correct!');
     } else {
       console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.\nLet's try again, ${userName}`);
-      return undefined;
+      return;
     }
 
-    return iter(counter + 1);
+    iter(counter + 1);
   };
 
-  return iter(0);
+  iter(0);
 };
