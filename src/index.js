@@ -1,12 +1,12 @@
 import readlineSync from 'readline-sync';
 import { car, cdr } from '@hexlet/pairs';
 
+const roundsCount = 3;
 export default (getData, task) => {
   console.log('Welcome to The Brain Games!');
   console.log(`${task}\n`);
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}!\n`);
-  const roundsCount = 3;
 
   const iter = (counter) => {
     if (counter === roundsCount) {
